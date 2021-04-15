@@ -6,6 +6,7 @@ Algorithms visualized-
 1. Djikstra
 2. BFS
 3. A *
-4. Kruskal
-5. DFS
-6. Prim
+4. Greedy
+5. Kruskal
+6. DFS
+7. Prim
