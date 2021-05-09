@@ -77,7 +77,7 @@ class Interface:
 
     def __init__(self):
 
-        self.current_algorithm = "diekstra"
+        self.current_algorithm = "dijsktra"
         self.current_maze = "prims"
 
         self.tkinter_window = tkinter.Tk()
@@ -154,16 +154,16 @@ class Interface:
         self.pathfinding_algorithms_label.pack(pady = 7)
 
 
-        self.diekstra_button = tkinter.Button(self.algorithm_frame, text = "Dijkstra's", bg = "green2", width = width, height = height, font = font, command = lambda: self.algorithm_select("diekstra"))
-        self.diekstra_button.pack(fill = "both", pady = 2)
+        self.dijsktra_button = tkinter.Button(self.algorithm_frame, text = "Dijkstra's", bg = "green2", width = width, height = height, font = font, command = lambda: self.algorithm_select("dijsktra"))
+        self.dijsktra_button.pack(fill = "both", pady = 2)
 
         self.a_star_button = tkinter.Button(self.algorithm_frame, text = "A*", width = width, height = height, font = font, command = lambda: self.algorithm_select("a_star"))
         self.a_star_button.pack(fill = "both", pady = 2)
 
-        self.greedy_button = tkinter.Button(self.algorithm_frame, text = "Greedy First", width = width, height = height, font = font, command = lambda: self.algorithm_select("greedy"))
-        self.greedy_button.pack(fill = "both", pady = 2)
+        self.bfs_button = tkinter.Button(self.algorithm_frame, text = "Breadth First", width = width, height = height, font = font, command = lambda: self.algorithm_select("bfs"))
+        self.bfs_button.pack(fill = "both", pady = 2)
 
-        self.algorithms = [self.greedy_button, self.diekstra_button, self.a_star_button]
+        self.algorithms = [self.bfs_button, self.dijsktra_button, self.a_star_button]
 
 
 
@@ -176,21 +176,13 @@ class Interface:
         self.maze_frame = tkinter.Frame(background = "gainsboro")
         self.maze_frame.grid(row = 1, column = 2, sticky = "n", padx = 4)
 
-        self.maze_label = tkinter.Label(self.maze_frame, text = "Mazes", bg = "cyan", width = width, height = height, font = font)
-        self.maze_label.pack(fill = "both", pady = 7)
+       # self.maze_label = tkinter.Label(self.maze_frame, text = "Mazes", bg = "cyan", width = width, height = height, font = font)
+       # self.maze_label.pack(fill = "both", pady = 7)
 
-        self.prim_button = tkinter.Button(self.maze_frame, text = "Prims Algorithm", bg = "green2", width = width, height = height, font = font, command = lambda: self.maze_select("prims"))
-        self.prim_button.pack(fill = "both", pady = 2)
+      #  self.prim_button = tkinter.Button(self.maze_frame, text = "Prims Algorithm", bg = "green2", width = width, height = height, font = font, command = lambda: self.maze_select("prims"))
+      #  self.prim_button.pack(fill = "both", pady = 2)
 
-        self.depth_button = tkinter.Button(self.maze_frame, text = "Depth-First", width = width, height = height, font = font, command = lambda: self.maze_select("depth"))
-        #photo = tkinter.PhotoImage(file = r"button.png")
-        #self.depth_button = tkinter.Button(self.maze_frame, text = "Depth-First", image = photo, width = width, height = height, font = font, command = lambda: self.maze_select("depth"))
-        self.depth_button.pack(fill = "both", pady = 2)
-
-        self.kruskal_button = tkinter.Button(self.maze_frame, text = "Kruskal", width = width, height = height, font = font, command = lambda: self.maze_select("kruskal"))
-        self.kruskal_button.pack(fill = "both", pady = 2)
-
-        self.mazes = [self.prim_button, self.depth_button, self.kruskal_button]
+      #  self.mazes = [self.prim_button]
 
 
 
@@ -214,11 +206,11 @@ class Interface:
         if selected_algorithm == "a_star":
             self.a_star_button.configure(bg = "green2")
 
-        elif selected_algorithm == "diekstra":
-            self.diekstra_button.configure(bg = "green2")
+        elif selected_algorithm == "dijsktra":
+            self.dijsktra_button.configure(bg = "green2")
 
-        elif selected_algorithm == "greedy":
-            self.greedy_button.configure(bg = "green2")
+        elif selected_algorithm == "bfs":
+            self.bfs_button.configure(bg = "green2")
 
 
 
@@ -232,11 +224,6 @@ class Interface:
         if selected_maze == "prims":
             self.prim_button.configure(bg = "green2")
 
-        elif selected_maze == "depth":
-            self.depth_button.configure(bg = "green2")
-
-        elif selected_maze == "kruskal":
-            self.kruskal_button.configure(bg = "green2")
 
 
 
@@ -251,15 +238,6 @@ def create_maze_control(maze):
         thread1 = threading.Thread(target = create_maze_prim)
         thread1.start()
 
-    elif maze == "depth":
-
-        thread1 = threading.Thread(target = create_maze_depth)
-        thread1.start()
-
-    elif maze == "kruskal":
-
-        thread1 = threading.Thread(target = create_maze_kruskal)
-        thread1.start()
 
 
 
@@ -267,17 +245,6 @@ def create_maze_control(maze):
 def create_maze_prim():
 
     prim.generate_maze(grid)
-
-
-def create_maze_depth():
-
-    depth_first.generate_maze(grid)
-
-
-def create_maze_kruskal():
-    kruskal.generate_maze(grid)
-
-
 
 
 
@@ -308,12 +275,12 @@ def current_go(algorithm):
         thread1 = threading.Thread(target = a_star.start_search, args = (grid, PATHFINDER_DELAY, SHORTEST_PATH_DELAY,))
         thread1.start()
 
-    elif algorithm == "diekstra":
-        thread1 = threading.Thread(target = diekstra.start_search, args = (grid, PATHFINDER_DELAY, SHORTEST_PATH_DELAY,))
+    elif algorithm == "dijsktra":
+        thread1 = threading.Thread(target = dijsktra.start_search, args = (grid, PATHFINDER_DELAY, SHORTEST_PATH_DELAY,))
         thread1.start()
 
-    elif algorithm == "greedy":
-        thread1 = threading.Thread(target = greedy.start_search, args = (grid, PATHFINDER_DELAY, SHORTEST_PATH_DELAY,))
+    elif algorithm == "bfs":
+        thread1 = threading.Thread(target = bfs.start_search, args = (grid, PATHFINDER_DELAY, SHORTEST_PATH_DELAY,))
         thread1.start()
 
     else:
