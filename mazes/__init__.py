@@ -1,1 +1,1 @@
-__all__ = ["prim", "depth_first", "kruskal"]
+__all__ = ["prim"]

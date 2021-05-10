@@ -173,16 +173,15 @@ class Interface:
 
 
         # maze selection
-        self.maze_frame = tkinter.Frame(background = "gainsboro")
-        self.maze_frame.grid(row = 1, column = 2, sticky = "n", padx = 4)
+        self.frame = tkinter.Frame(background = "gainsboro")
+        self.frame.grid(row = 1, column = 2, sticky = "n", padx = 4)
 
-       # self.maze_label = tkinter.Label(self.maze_frame, text = "Mazes", bg = "cyan", width = width, height = height, font = font)
-       # self.maze_label.pack(fill = "both", pady = 7)
+        self.label = tkinter.Label(self.frame, text = "Instructions", bg = "cyan", width = width, height = height, font = font)
+        self.label.pack(fill = "both", pady = 7)
 
-      #  self.prim_button = tkinter.Button(self.maze_frame, text = "Prims Algorithm", bg = "green2", width = width, height = height, font = font, command = lambda: self.maze_select("prims"))
-      #  self.prim_button.pack(fill = "both", pady = 2)
-
-      #  self.mazes = [self.prim_button]
+        self.msg = tkinter.Message(self.frame, text = "1. Choose algorithm \n\n2. Create a maze or custom made walls \n\n3. Choose start position \n\n4.Choose end position \n\n5. Begin Pathfinding \n\n6. Clear grid", width=150)
+        self.msg.config(font=font)
+        self.msg.pack(fill = "both", padx=0.5)
 
 
 
