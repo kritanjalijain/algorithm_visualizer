@@ -120,9 +120,9 @@ class Interface:
 
         self.wall_button = tkinter.Button(text = "Walls", width = but_width, height = but_height, command = current_walls, bg = "grey")
         self.start_pos_button = tkinter.Button(text = "Start Position", width = but_width, height = but_height, command = current_start_pos, bg = "green")
-        self.end_pos_button = tkinter.Button(text = "End Position", width = but_width, height = but_height, command = current_end_pos, bg = "red")
-        self.go_button = tkinter.Button(text = "Begin Pathfinding", width = but_width, height = but_height, command = lambda: current_go(self.current_algorithm), bg = "blue")
-        self.clear_grid_button = tkinter.Button(text = "Clear Grid", width = but_width, height = but_height, command = current_clear_grid, bg = "orange")
+        self.end_pos_button = tkinter.Button(text = "End Position", width = but_width, height = but_height, command = current_end_pos, bg = "#EB6E6C")
+        self.go_button = tkinter.Button(text = "Begin Pathfinding", width = but_width, height = but_height, command = lambda: current_go(self.current_algorithm), bg = "#B5DCDD")
+        self.clear_grid_button = tkinter.Button(text = "Clear Grid", width = but_width, height = but_height, command = current_clear_grid, bg = "#E8AE3C")
 
         padxv = int(WIN_WIDTH / 1000)
         self.wall_button.grid(row = 3, column = 1, padx = padxv, pady = padxv)
@@ -131,7 +131,7 @@ class Interface:
         self.go_button.grid(row = 5, column = 1, padx = padxv, pady = padxv)
         self.clear_grid_button.grid(row = 3, column = 2, padx = padxv, pady = padxv)
 
-        self.create_maze_button = tkinter.Button(text = "Generate Maze", width = but_width, height = but_height, command = lambda: create_maze_control(self.current_maze))
+        self.create_maze_button = tkinter.Button(text = "Generate Maze", width = but_width, height = but_height, command = lambda: create_maze_control(self.current_maze), bg = "#C7CEF4")
         self.create_maze_button.grid(row = 5, column = 2, padx = padxv, pady = padxv)
 
 
@@ -150,7 +150,7 @@ class Interface:
         self.algorithm_frame = tkinter.Frame(background = "gainsboro")
         self.algorithm_frame.grid(row = 1, column = 1, sticky = "n", padx = 4)
 
-        self.pathfinding_algorithms_label = tkinter.Label(self.algorithm_frame, text = "Algorithms", bg = "cyan", width = width, height = height, font = font)
+        self.pathfinding_algorithms_label = tkinter.Label(self.algorithm_frame, text = "Algorithms", bg = "#61AAC5", width = width, height = height, font = font)
         self.pathfinding_algorithms_label.pack(pady = 7)
 
 
@@ -176,10 +176,10 @@ class Interface:
         self.frame = tkinter.Frame(background = "gainsboro")
         self.frame.grid(row = 1, column = 2, sticky = "n", padx = 4)
 
-        self.label = tkinter.Label(self.frame, text = "Instructions", bg = "cyan", width = width, height = height, font = font)
+        self.label = tkinter.Label(self.frame, text = "Instructions", bg = "#61AAC5", width = width, height = height, font = font)
         self.label.pack(fill = "both", pady = 7)
 
-        self.msg = tkinter.Message(self.frame, text = "1. Choose algorithm \n\n2. Create a maze or custom made walls \n\n3. Choose start position \n\n4.Choose end position \n\n5. Begin Pathfinding \n\n6. Clear grid", width=150)
+        self.msg = tkinter.Message(self.frame, text = "1. Choose algorithm \n\n2. Create a maze or custom made walls \n\n3. Choose start position \n\n4. Choose end position \n\n5. Begin Pathfinding \n\n6. Clear grid", width=150)
         self.msg.config(font=font)
         self.msg.pack(fill = "both", padx=0.5)
 
@@ -187,8 +187,8 @@ class Interface:
 
 
         # settings button
-        self.settings_button = tkinter.Button(text = "Settings", command = settings_control)
-        self.settings_button.grid(row = 11, column = 2)
+        self.settings_button = tkinter.Button(text = "Settings", command = settings_control, bg = "#61AAC5" , width = but_width, height = but_height)
+        self.settings_button.grid(row = 10, column = 2)
 
 
 

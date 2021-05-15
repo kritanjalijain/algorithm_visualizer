@@ -1,5 +1,5 @@
 import tkinter
-
+import colors
 
 class Change_window_settings_interface:
 
@@ -8,60 +8,61 @@ class Change_window_settings_interface:
     def __init__(self):
 
         self.window = tkinter.Tk()
-        self.window.geometry("400x400")
-        self.window.configure(background = "grey")
+        self.window.geometry("400x700")
+        self.window.configure(background = "#F0F0F0")
 
 
 
-        self.settings_label = tkinter.Label(self.window, text = "Settings", font = ("SimSun", 20))
+        self.settings_label = tkinter.Label(self.window, text = "Settings", font = ("SimSun", 20), bg = "#61AAC5", height = 2)
         self.settings_label.grid(row = 1, column = 1, columnspan = 3)
 
         font = ("SimSun", 10)
         width = 30
-        self.window_width_label = tkinter.Label(self.window, text = "Window Width:", font = font, width = width)
-        self.window_width_label.grid(row = 2, column = 1)
+        height = 5
+        self.window_width_label = tkinter.Label(self.window, text = "Window Width:", font = font, width = width , height = height, bg = "#F0F0F0")
+        self.window_width_label.grid(row = 3, column = 1)
         self.window_width_entry = tkinter.Entry(self.window)
-        self.window_width_entry.grid(row = 2, column = 2)
+        self.window_width_entry.grid(row = 3, column = 2)
 
 
-        self.window_height_label = tkinter.Label(self.window, text = "Window Height:", font = font, width = width)
-        self.window_height_label.grid(row = 3, column = 1)
+        self.window_height_label = tkinter.Label(self.window, text = "Window Height:", font = font, width = width, height = height, bg = "#F0F0F0")
+        self.window_height_label.grid(row = 5, column = 1)
         self.window_height_entry = tkinter.Entry(self.window)
-        self.window_height_entry.grid(row = 3, column = 2)
+        self.window_height_entry.grid(row = 5, column = 2)
 
 
-        self.grid_width_label = tkinter.Label(self.window, text = "Grid Square Size:", font = font, width = width)
-        self.grid_width_label.grid(row = 4, column = 1)
+        self.grid_width_label = tkinter.Label(self.window, text = "Grid Square Size:", font = font, width = width, height = height, bg = "#F0F0F0")
+        self.grid_width_label.grid(row = 7, column = 1)
         self.grid_width_entry = tkinter.Entry(self.window)
-        self.grid_width_entry.grid(row = 4, column = 2)
+        self.grid_width_entry.grid(row = 7, column = 2)
 
 
-        self.grid_pad_label = tkinter.Label(self.window, text = "Grid Square Pad:", font = font, width = width)
-        self.grid_pad_label.grid(row = 5, column = 1)
+        self.grid_pad_label = tkinter.Label(self.window, text = "Grid Square Pad:", font = font, width = width, height = height, bg = "#F0F0F0")
+        self.grid_pad_label.grid(row = 9, column = 1)
         self.grid_pad_entry = tkinter.Entry(self.window)
-        self.grid_pad_entry.grid(row = 5, column = 2)
+        self.grid_pad_entry.grid(row = 9, column = 2)
 
-        self.algorithm_search_delay_label = tkinter.Label(self.window, text = "Algorithm Search Delay:", font = font, width = width)
-        self.algorithm_search_delay_label.grid(row = 6, column = 1)
+        self.algorithm_search_delay_label = tkinter.Label(self.window, text = "Algorithm Search Delay:", font = font, width = width, height = height, bg = "#F0F0F0")
+        self.algorithm_search_delay_label.grid(row = 11, column = 1)
         self.algorithm_search_delay_entry = tkinter.Entry(self.window)
-        self.algorithm_search_delay_entry.grid(row = 6, column = 2)
+        self.algorithm_search_delay_entry.grid(row = 11, column = 2)
 
-        self.algorithm_backtrack_delay_label = tkinter.Label(self.window, text = "Algorithm Backtrack Delay:", font = font, width = width)
-        self.algorithm_backtrack_delay_label.grid(row = 7, column = 1)
+        self.algorithm_backtrack_delay_label = tkinter.Label(self.window, text = "Algorithm Backtrack Delay:", font = font, width = width, height = height, bg = "#F0F0F0")
+        self.algorithm_backtrack_delay_label.grid(row = 13, column = 1)
         self.algorithm_backtrack_delay_entry = tkinter.Entry(self.window)
-        self.algorithm_backtrack_delay_entry.grid(row = 7, column = 2)
+        self.algorithm_backtrack_delay_entry.grid(row = 13, column = 2)
 
 
-        self.fps_label = tkinter.Label(self.window, text = "FPS:", font = font, width = width)
-        self.fps_label.grid(row = 8, column = 1)
+        self.fps_label = tkinter.Label(self.window, text = "FPS:", font = font, width = width, height = height,bg = "#F0F0F0")
+        self.fps_label.grid(row = 15, column = 1)
         self.fps_entry = tkinter.Entry(self.window)
-        self.fps_entry.grid(row = 8, column = 2)
+        self.fps_entry.grid(row = 15, column = 2)
 
 
 
 
-        self.save_button = tkinter.Button(self.window, text = "Save", width = width, command = self.update_settings)
-        self.save_button.grid(row = 9, column = 1, columnspan = 2)
+        self.save_button = tkinter.Button(self.window, text = "Save", width = 15,command = self.update_settings, bg = "green")
+        self.save_button.grid(row = 17, column = 1, columnspan = 2)
 
 
 
