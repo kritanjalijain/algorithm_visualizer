@@ -58,7 +58,7 @@ We aim to visualize basic pathfinding algorithms i.e. **Dijkstra's algorithm, br
 
 ## Built With
 * Languages - python
-* GUI Library - Tkinter
+* Libraries - Tkinter, pygame
 
 ## Setup and Installation
 * Clone the repository 

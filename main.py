@@ -7,7 +7,7 @@ import os
 from grid_square import Grid_square
 from window_settings import Change_window_settings_interface
 from operator import attrgetter
-import maze_prim
+#import maze_prim
 import grid_utils
 import colors
 from algorithms import *
